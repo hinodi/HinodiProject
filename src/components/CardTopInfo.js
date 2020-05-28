@@ -7,7 +7,6 @@ import {
     getSizeByWidth,
 } from '../configs/styles/Size';
 import Color from '../configs/styles/Color';
-import CardBottomText from './CardBottomText';
 
 const cameraIcon = require('../assets/images/camera.png');
 
