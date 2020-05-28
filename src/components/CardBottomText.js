@@ -20,7 +20,7 @@ class CardBottomText extends React.PureComponent {
 
 export default CardBottomText;
 
-const CardBottomTextContainer = styled.Text`
+const CardBottomTextContainer = styled.View`
     flex: 1;
 `;
 

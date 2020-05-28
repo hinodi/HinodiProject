@@ -1,14 +1,20 @@
 import React from 'react';
+import {StatusBar} from 'react-native';
 import styled from 'styled-components';
 
 import color from '../configs/styles/Color';
 import {getFontSize, getSizeByHeight} from '../configs/styles/Size';
+import Color from '../configs/styles/Color';
 
 class Header extends React.PureComponent {
     render() {
         const {number} = this.props;
         return (
             <HeaderContainer>
+                <StatusBar
+                    backgroundColor={Color.WHITE}
+                    barStyle="dark-content"
+                />
                 <HeaderTitle>Mes annonces ({number})</HeaderTitle>
             </HeaderContainer>
         );
