@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {View} from 'react-native';
 
 import {getSizeByWidth, getSizeByHeight} from '../configs/styles/Size';
 import Color from '../configs/styles/Color';
 import CardTopInfo from './CardTopInfo';
+import CardImage from './CardImage';
 import CardBottomInfo from './CardBottomInfo';
 
 class App extends React.PureComponent {
@@ -14,21 +16,20 @@ class App extends React.PureComponent {
         const priceObject = tariffs.find(e => e.type === 1);
         return priceObject?.price;
     };
+
     render() {
         const {medias, identity} = this.props.data;
-        if (!medias || !medias.length || !medias[0] || !medias[0].source)
+        if (!medias || !medias.length || !medias[0] || !medias[0].source) {
             return <View />;
-        console.log(medias[0].source);
+        }
+
+        const images = medias.map(e => e.source);
 
         return (
             <CardOutSideContainer>
                 <CardContainer>
                     <CardTopContainer>
-                        <CardImage
-                            source={{
-                                uri: medias[0].source,
-                            }}
-                        />
+                        <CardImage images={images} />
                         <CardTopInfo
                             numberImages={medias.length}
                             name={identity?.name}
@@ -65,8 +66,3 @@ const CardContainer = styled.View`
 `;
 
 const CardTopContainer = styled.View``;
-
-const CardImage = styled.Image`
-    height: ${getSizeByHeight(200)};
-    flex: 1;
-`;
